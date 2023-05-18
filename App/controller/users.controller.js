@@ -23,7 +23,7 @@ exports.register = (req, res) => {
      const user=new userModel({ fullname,email,password:bcrypt.hashSync(password,10) , role});
      user.save()
      .then(data => {
-        res.send({message:"User registered successfully"},data)
+        res.send({message:"User registered successfully"},"data":data)
     })
     .catch(err => {
         res.status(500).send({ message: err.message || "some error  occured while creating book" })
